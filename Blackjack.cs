@@ -17,22 +17,19 @@ namespace Casino
 
         static void GetIntCards(List<object> cards, List<int> cardsInt)
         {
-            cardsInt.Clear();
-            for (int i = 0; i < cards.Count; i++)
-            {             
-                if (cards[i].ToString() == "jack" || cards[i].ToString() == "queen" || cards[i].ToString() == "king")
-                {
-                    cardsInt.Add(10);
-                }
-                else if (cards[i].ToString() == "ace")
-                {
-                    cardsInt.Add(11);
-                }
-                else
-                {
-                    int number = (int)cards[i];
-                    cardsInt.Add(number);
-                }
+            object newcard = cards.Last();
+
+            if (newcard == "jack" || newcard == "queen" || newcard == "king")
+            {
+                cardsInt.Add(10);
+            }
+            else if (newcard == "ace")
+            {
+                cardsInt.Add(11);
+            }
+            else
+            {
+                cardsInt.Add((int)newcard);
             }            
         }
 
